@@ -1,0 +1,73 @@
+1. Problem Title
+	Burger-Maximum profit
+
+2. Problem Content
+	your will be given N number of buns, V number of veg-cutlets, C number of chicken-cutlets
+and X cost of veg-cutlet, Y cost of chicken-cutlets
+	You need 2 buns + 1 cutlets to make a single burger
+	Your task is to find the maximum profit that can be attained by produing no of veg and no of chicken burger,
+print no of veg-burger made and no of chicken burger made and maximum profit that can be attained.
+
+3. Boundary Conditions
+4. Input Format
+
+N V C
+X Y
+
+5. Output Format
+
+No_of_veg_burger
+No_of_chicken_burger
+Maximum Profit attained
+
+6. 2 Samples with Input    and Output and in those 2, 1 sample must be explained
+
+Sample Input1:
+8 4 3                
+50 100               		
+
+Sample Output1:
+1
+3
+350
+
+Sample Input2:
+7 2 4
+10 20
+
+Sample Output2:
+0
+3
+60
+
+7. 5 Private Test Cases
+
+8. Execution Time Limit
+
+9. Solution
+b,v,c = list(map(int,input().split()))
+x,y = list(map(int,input().split()))
+flag=0
+if x > y:
+    flag=1
+    x,y = y,x
+    v,c = c,v
+s=0
+v_count,c_count=0,0
+while b > 1 and (v > 0 or c > 0):
+    if c > 0:
+        s+=y
+        c -= 1
+        v_count+=1
+    else:
+        s+=x
+        v -= 1
+        c_count+=1
+    b-=2
+if(flag==0):
+    print(c_count)
+    print(v_count)
+else:
+    print(v_count)
+    print(c_count)
+print(s)
